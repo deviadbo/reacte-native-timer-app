@@ -17,6 +17,7 @@ import {
   TextInput,
   useColorScheme,
   View,
+  Linking,
 } from 'react-native';
 
 import {
@@ -68,6 +69,9 @@ function App(): JSX.Element {
         <View style={styles.headerContainer}>
           <Text style={styles.headerTitle}>My Timer</Text> 
         </View>
+        <View style={styles.underTitleContainer}>
+        
+        </View>
         <Text style={styles.inputTitle}>להתחברות לאפקלציית טיימר אנא הזינו את מספר הטלפון והמייל שלכם</Text> 
         <TextInput
         style={styles.input}
@@ -82,6 +86,13 @@ function App(): JSX.Element {
         placeholder="הקלד מספר טלפון"
         keyboardType="numeric"
       />
+      </View>
+      <View style={styles.beforefooterContainer}>
+      <Text style={styles.inputTitle}>צריך עזרה?</Text> 
+      <Text style={styles.linkText}
+        onPress={() => Linking.openURL('http://google.com')}>
+        יצירת קשר עם התמיכה
+      </Text>
       </View>
       <View style={styles.footerContainer}>
 
@@ -99,10 +110,12 @@ const styles = StyleSheet.create({
     margin: 15,
     borderWidth: 2,
     padding: 12,
+    alignContent: 'center',
   },
   rootContainer: {
     flex: 1,
-    backgroundColor: 'coral',
+    backgroundColor: 'white',
+    alignContent: 'center',
   },
   headerContainer: {
     backgroundColor: 'white',
@@ -118,15 +131,38 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold',
   },
   inputTitle: {
     fontSize: 15,
     marginRight: 16,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  linkText: {
+    fontSize: 15,
+    marginRight: 16,
+    marginTop: 20,
+    alignItems: 'center',
+    color: 'blue',
   },
   footerContainer: {
     backgroundColor: 'red',
+    height: 0.1 * windowHeigth,
+    flexDirection: 'row',
+    borderBottomWidth: 4,
+    borderColor: 'gray',
+    justifyContent: 'space-between' 
+  },
+  beforefooterContainer: {
+    backgroundColor: 'white',
+    height: 0.2 * windowHeigth,
+    flexDirection: 'row',
+    justifyContent: 'space-between' 
+  },
+  underTitleContainer: {
+    backgroundColor: 'white',
     height: 0.1 * windowHeigth,
     flexDirection: 'row',
     justifyContent: 'space-between' 
@@ -136,8 +172,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+    fontSize: 40,
+    fontWeight: '700',
   },
   sectionDescription: {
     marginTop: 8,
